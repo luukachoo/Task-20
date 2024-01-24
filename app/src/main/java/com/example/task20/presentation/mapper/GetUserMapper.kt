@@ -1,17 +1,16 @@
-package com.example.task20.data.local.mapper
+package com.example.task20.presentation.mapper
 
-import com.example.task20.data.local.model.UserEntity
 import com.example.task20.domain.model.GetUser
+import com.example.task20.presentation.model.User
 
-fun UserEntity.toDomain() = GetUser(
+fun GetUser.toPresentation() = User(
     firstName = firstName,
     lastName = lastName,
     age = age,
     email = email
 )
 
-
-fun GetUser.toData() = UserEntity(
+fun User.toDomain() = GetUser(
     firstName = firstName,
     lastName = lastName,
     age = age,

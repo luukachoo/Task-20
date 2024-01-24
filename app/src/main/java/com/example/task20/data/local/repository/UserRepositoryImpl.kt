@@ -2,7 +2,6 @@ package com.example.task20.data.local.repository
 
 import com.example.task20.data.local.dao.UserDao
 import com.example.task20.data.local.mapper.toData
-import com.example.task20.data.local.mapper.toDomain
 import com.example.task20.domain.model.GetUser
 import com.example.task20.domain.repository.UserRepository
 import javax.inject.Inject
@@ -17,8 +16,12 @@ class UserRepositoryImpl @Inject constructor(private val userDao: UserDao) : Use
         return userDao.removeUser(userEntity.toData())
     }
 
-    override suspend fun updateUser(userEntity: GetUser): GetUser {
-        return userDao.updateUser(userEntity.toData()).toDomain()
+    override suspend fun updateUser(userEntity: GetUser) {
+        return userDao.updateUser(userEntity.toData())
+    }
+
+    override fun doesUserExists(email: String): Boolean {
+        return userDao.doesUserExist(email)
     }
 
 }

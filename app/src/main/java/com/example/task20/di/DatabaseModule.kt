@@ -17,17 +17,16 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideRoomDatabase(@ApplicationContext context: Context) : UserDatabase {
-        return Room.databaseBuilder(
-            context,
-            UserDatabase::class.java, "user-database"
-        ).build()
-    }
+    fun provideRoomDatabase(@ApplicationContext context: Context): UserDatabase =
+        Room.databaseBuilder(
+            context, UserDatabase::class.java, "USER_DATABASE"
+        )
+            .allowMainThreadQueries()
+            .fallbackToDestructiveMigration()
+            .build()
+
 
     @Provides
     @Singleton
-    fun provideUserDao(userDatabase: UserDatabase): UserDao {
-        return userDatabase.userDao()
-    }
-
+    fun provideUserDao(userDatabase: UserDatabase): UserDao = userDatabase.userDao()
 }
