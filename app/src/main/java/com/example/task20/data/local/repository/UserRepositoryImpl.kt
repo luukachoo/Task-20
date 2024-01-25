@@ -4,6 +4,7 @@ import com.example.task20.data.local.dao.UserDao
 import com.example.task20.data.local.mapper.toData
 import com.example.task20.domain.model.GetUser
 import com.example.task20.domain.repository.UserRepository
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(private val userDao: UserDao) : UserRepository {
@@ -22,6 +23,14 @@ class UserRepositoryImpl @Inject constructor(private val userDao: UserDao) : Use
 
     override fun doesUserExists(email: String): Boolean {
         return userDao.doesUserExist(email)
+    }
+
+    override fun getUerCount(): Flow<Int> {
+        return userDao.getUserCount()
+    }
+
+    override fun getUserIdByEmail(email: String): Long {
+        return userDao.getUserIdByEmail(email)
     }
 
 }

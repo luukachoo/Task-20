@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".presentation.screen.MainFragment">
+    tools:context=".presentation.screen.user.UserFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvCounterText"
@@ -38,6 +38,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
         android:hint="@string/first_name"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCounterText">
@@ -60,16 +61,16 @@
         android:id="@+id/etLastNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
         android:hint="@string/last_name"
-        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@id/etFirstNameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
             android:inputType="text"
             android:textColor="@color/white" />
 
@@ -79,21 +80,18 @@
         android:id="@+id/etAgeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
         android:hint="@string/age"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/etLastNameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="16dp"
             android:inputType="number"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
-
-
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -102,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/etAgeLayout">
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -184,16 +183,5 @@
         app:layout_constraintStart_toEndOf="@+id/buttonRemove"
         app:layout_constraintTop_toTopOf="@+id/buttonRemove"
         app:rippleColor="@color/white" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
